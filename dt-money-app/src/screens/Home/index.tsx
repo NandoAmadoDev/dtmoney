@@ -1,6 +1,6 @@
 import { useTransactionContext } from '@/context/transaction.context'
 import { useErrorHandler } from '@/shared/hooks/useErrorHandler'
-import { useEffect } from 'react'
+import { useEffect, useEffectEvent } from 'react'
 import { ActivityIndicator, FlatList } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ListHeader } from './ListHeader'
@@ -89,13 +89,15 @@ export const Home = () => {
     }
   }
 
+  const onInitialLoad = useEffectEvent(async () => {
+    await Promise.all([
+      handleFetchCategories(),
+      handleFetchInitialTransactions(),
+    ])
+  })
+
   useEffect(() => {
-    ;(async () => {
-      await Promise.all([
-        handleFetchCategories(),
-        handleFetchInitialTransactions(),
-      ])
-    })()
+    onInitialLoad()
   }, [])
 
   return (

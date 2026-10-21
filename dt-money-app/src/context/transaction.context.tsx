@@ -162,8 +162,7 @@ export const TransactionContextProvider: FC<PropsWithChildren> = ({
       totalRows: transactionsResponse.totalRows,
     }))
   }, [
-    pagination.page,
-    pagination.perPage,
+    pagination,
     searchText,
     filters,
     categoryIds,

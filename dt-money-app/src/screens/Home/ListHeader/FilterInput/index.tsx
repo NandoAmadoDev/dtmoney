@@ -7,7 +7,7 @@ import { useBottomSheetContext } from '@/context/bottomsheet.context'
 import { TransactionsFilters } from './TransactionFilters'
 
 export const FilterInput = () => {
-  const { pagination, setSearchText, searchText, fetchTransactions } =
+  const { pagination, setSearchText, fetchTransactions } =
     useTransactionContext()
   const { openBottomSheet } = useBottomSheetContext()
 
@@ -19,15 +19,15 @@ export const FilterInput = () => {
     }, 500)
 
     return () => clearTimeout(handler)
-  }, [text])
+  }, [text, setSearchText])
 
   useEffect(() => {
     ;(async () => {
       try {
         await fetchTransactions({ page: 1 })
-      } catch (error) {}
+      } catch {}
     })()
-  }, [searchText])
+  }, [fetchTransactions])
 
   return (
     <View className="mb-4 w-[90%] self-center">

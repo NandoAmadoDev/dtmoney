@@ -8,7 +8,7 @@ import { ptBR } from 'date-fns/locale'
 import { ICONS } from './strategies/icon-strategy'
 import { CARD_DATA } from './strategies/card-data-strategy'
 import { moneyMapper } from '@/shared/utils/money-mapper'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 export type TransactionCardType = TransactionType | 'total'
 

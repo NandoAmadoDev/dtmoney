@@ -1,9 +1,9 @@
+import { DatePicker } from '@/components/DatePicker'
 import { useTransactionContext } from '@/context/transaction.context'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { format, isValid } from 'date-fns'
 import { useState } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
-import DateTimePicker from 'react-native-modal-datetime-picker'
 
 export const DateFilter = () => {
   const { filters, handleFilters } = useTransactionContext()
@@ -72,26 +72,18 @@ export const DateFilter = () => {
         </View>
       </View>
 
-      <DateTimePicker
+      <DatePicker
         isVisible={showStartDatePicker}
         date={filters.from}
         onCancel={onStartCancel}
         onConfirm={onStartConfirm}
-        mode="date"
-        confirmTextIOS="Confirmar"
-        cancelTextIOS="Cancelar"
-        locale="pt-BR"
       />
 
-      <DateTimePicker
+      <DatePicker
         isVisible={showEndDatePicker}
         date={filters.to}
         onCancel={onEndCancel}
         onConfirm={onEndConfirm}
-        mode="date"
-        confirmTextIOS="Confirmar"
-        cancelTextIOS="Cancelar"
-        locale="pt-BR"
       />
     </>
   )

@@ -3,7 +3,7 @@ import { TransactionType } from '@/shared/enums/transaction-type'
 import { FC } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { colors } from '@/shared/colors'
 
 interface Props {

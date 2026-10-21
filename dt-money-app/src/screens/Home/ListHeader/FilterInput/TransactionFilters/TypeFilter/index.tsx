@@ -1,6 +1,6 @@
 import { useTransactionContext } from '@/context/transaction.context'
 import { TransactionType } from '@/shared/enums/transaction-type'
-import Checkbox from 'expo-checkbox'
+import { Checkbox } from 'expo-checkbox'
 import { Text, TouchableOpacity, View } from 'react-native'
 
 export const TypeFilter = () => {

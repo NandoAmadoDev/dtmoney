@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { PrivateRoutes } from './PrivateRoutes'
 import { PublicRoutes } from './PublicRoutes'
 import { SystemBars } from 'react-native-edge-to-edge'
@@ -10,22 +10,16 @@ const NavigationRoutes = () => {
   const [loading, setLoading] = useState(true)
   const { token, user } = useAuthContext()
 
-  const Routes = useCallback(() => {
-    if (loading) {
-      return <Loading setLoading={setLoading} />
-    }
-
-    if (!user || !token) {
-      return <PublicRoutes />
-    } else {
-      return <PrivateRoutes />
-    }
-  }, [user, token, loading])
-
   return (
     <NavigationContainer>
       <SystemBars style="light" />
-      <Routes />
+      {loading ? (
+        <Loading setLoading={setLoading} />
+      ) : !user || !token ? (
+        <PublicRoutes />
+      ) : (
+        <PrivateRoutes />
+      )}
     </NavigationContainer>
   )
 }

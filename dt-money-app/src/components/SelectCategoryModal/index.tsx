@@ -1,6 +1,6 @@
 import { useTransactionContext } from '@/context/transaction.context'
-import clsx from 'clsx'
-import Checkbox from 'expo-checkbox'
+import { clsx } from 'clsx'
+import { Checkbox } from 'expo-checkbox'
 import { FC, useMemo, useState } from 'react'
 import {
   FlatList,

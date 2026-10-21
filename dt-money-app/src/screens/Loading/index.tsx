@@ -1,6 +1,6 @@
 import { useAuthContext } from '@/context/auth.context'
 import { colors } from '@/shared/colors'
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useEffectEvent } from 'react'
 import { ActivityIndicator, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -11,20 +11,22 @@ interface Props {
 export const Loading: FC<Props> = ({ setLoading }) => {
   const { restoreUserSession, handleLogout } = useAuthContext()
 
-  useEffect(() => {
-    ;(async () => {
+  const onRestoreSession = useEffectEvent(async () => {
       try {
         const user = await restoreUserSession()
 
         if (!user) {
           await handleLogout()
         }
-      } catch (error) {
+      } catch {
         await handleLogout()
       } finally {
         setLoading(false)
       }
-    })()
+  })
+
+  useEffect(() => {
+    onRestoreSession()
   }, [])
 
   return (

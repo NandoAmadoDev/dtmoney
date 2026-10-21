@@ -1,6 +1,6 @@
 import { colors } from '@/shared/colors'
 import { MaterialIcons } from '@expo/vector-icons'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { useRef, useState } from 'react'
 import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 import {
