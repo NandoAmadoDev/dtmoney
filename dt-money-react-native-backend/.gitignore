@@ -1,0 +1,23 @@
+.idea/
+.vscode/
+node_modules/
+build/
+tmp/
+temp/
+
+# Banco de dados local
+database.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
